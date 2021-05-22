@@ -11,16 +11,16 @@ def predict_chances(request):
     if request.POST.get('action') == 'post':
 
         # Receive data from client
-        Hat_Kodu = float(request.POST.get('Hat_Kodu'))
-        Gun = float(request.POST.get('Gun'))
-        Saat = float(request.POST.get('Saat'))
-        Arac_Kimligi = float(request.POST.get('Arac_Kimligi'))
-        Konum_Bilgisi = float(request.POST.get('Konum_Bilgisi'))
-        Personel_Sicili = float(request.POST.get('Personel_Sicili'))
+        Hat_Kodu = int(request.POST.get('Hat_Kodu'))
+        Gun = int(request.POST.get('Gun'))
+        Saat = int(request.POST.get('Saat'))
+        Arac_Kimligi = int(request.POST.get('Arac_Kimligi'))
+        Konum_Bilgisi = int(request.POST.get('Konum_Bilgisi'))
+        Personel_Sicili = int(request.POST.get('Personel_Sicili'))
         Surucu_Performans_Puani = float(request.POST.get('Surucu_Performans_Puani'))
 
         # Unpickle model
-        mlpc_model = pd.read_pickle("mlpc_model.pkl")
+        mlpc_model = pd.read_pickle(r"mlpc_model.pickle")
         # Make prediction
         result = mlpc_model.predict([[Hat_Kodu, Gun, Saat, Arac_Kimligi, Konum_Bilgisi, Personel_Sicili, Surucu_Performans_Puani]])
 

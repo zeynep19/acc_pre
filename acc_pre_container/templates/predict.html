@@ -6,26 +6,26 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Prediction Results</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tahmin Sonuçları</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <h5>Prediction Input:</h5>
-                <div>Hat Kodu: <span id="sl"></span></div>
-                <div>Gün: <span id="sw"></span></div>
-                <div>Saat: <span id="pl"></span></div>
-                <div>Araç Kimliği: <span id="pw"></span></div>
-                <div>Konum Bilgisi: <span id="pl"></span></div>
-                <div>Personel Sicili: <span id="pl"></span></div>
-                <div>Sürücü performans puanı: <span id="pl"></span></div>
-                <h5 class="pt-3">Prediction Classification:</h5>
+                <h5>Tahmin Girdileri:</h5>
+                <div>Hat Kodu: <span id="HK"></span></div>
+                <div>Gün: <span id="G"></span></div>
+                <div>Saat: <span id="S"></span></div>
+                <div>Araç Kimliği: <span id="AK"></span></div>
+                <div>Konum Bilgisi: <span id="KB"></span></div>
+                <div>Personel Sicili: <span id="PS"></span></div>
+                <div>Sürücü performans puanı: <span id="SPP"></span></div>
+                <h5 class="pt-3">Tahmin Sınıfı:</h5>
                 <div id="prediction"></div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <a class="btn btn-primary" href="/results" role="button">View DB</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                <a class="btn btn-primary" href="/results" role="button">Veri Tabanını Göster</a>
             </div>
         </div>
     </div>
@@ -34,38 +34,38 @@
 <div class="container pt-5">
     <div class="row justify-content-md-center">
         <div class="col-md-4">
-            <h1>Accident Prediction</h1>
+            <h1>Kaza Tahmin </h1>
             <form action="" id="post-form">
                 {% csrf_token %}
                 <div class="form-group">
-                    <label for="Hat_Kodu">Hat Kodu</label>
-                    <input type="number" step="0.1" class="form-control" id="Hat_Kodu" placeholder="" required>
+                    <label for="Hat_Kodu">Hat Kodu (1=34BZ, 2=34AS)</label>
+                    <input type="number" step="1" class="form-control" id="Hat_Kodu" placeholder="" required>
                 </div>
                 <div class="form-group">
-                    <label for="Gun">Gün</label>
-                    <input type="number" step="0.1" class="form-control" id="Gun" placeholder="" required>
+                    <label for="Gun">Gün (1=pzt, ..., 7=pazar)</label>
+                    <input type="number" step="1" class="form-control" id="Gun" placeholder="" required>
                 </div>
                 <div class="form-group">
-                    <label for="Saat">Saat</label>
-                    <input type="number" step="0.1" class="form-control" id="Saat" placeholder="" required>
+                    <label for="Saat">Saat (1-48) </label>
+                    <input type="number" step="1" class="form-control" id="Saat" placeholder="" required>
                 </div>
                 <div class="form-group">
-                    <label for="Arac_Kimligi">Araç Kimliği</label>
-                    <input type="number" step="0.1" class="form-control" id="Arac_Kimligi" placeholder="" required>
+                    <label for="Arac_Kimligi">Araç Kimliği (4 haneli)</label>
+                    <input type="number" step="1" class="form-control" id="Arac_Kimligi" placeholder="" required>
                 </div>
                 <div class="form-group">
-                    <label for="Konum_Bilgisi">Konum Bilgisi</label>
-                    <input type="number" step="0.1" class="form-control" id="Konum_Bilgisi" placeholder="" required>
+                    <label for="Konum_Bilgisi">Konum Bilgisi (1- Beylikdüzü Sondurak (TÜYAP),..., 87- Söğütlüçeşme)</label>
+                    <input type="number" step="1" class="form-control" id="Konum_Bilgisi" placeholder="" required>
                 </div>
                 <div class="form-group">
-                    <label for="Personel_Sicili">Personel Sicili</label>
-                    <input type="number" step="0.1" class="form-control" id="Personel_Sicili" placeholder="" required>
+                    <label for="Personel_Sicili">Personel Sicili (6 haneli)</label>
+                    <input type="number" step="1" class="form-control" id="Personel_Sicili" placeholder="" required>
                 </div>
                 <div class="form-group">
                     <label for="Surucu_Performans_Puani">Sürücü performans puanı</label>
                     <input type="number" step="0.1" class="form-control" id="Surucu_Performans_Puani" placeholder="" required>
                 </div>
-                <button type="submit" value="Submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Submit</button>
+                <button type="submit" value="Submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Sonuçları Göster</button>
             </form>
         </div>
     </div>
