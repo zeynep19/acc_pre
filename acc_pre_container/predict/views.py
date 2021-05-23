@@ -19,6 +19,7 @@ def predict_chances(request):
         Personel_Sicili = int(request.POST.get('Personel_Sicili'))
         Surucu_Performans_Puani = float(request.POST.get('Surucu_Performans_Puani'))
 
+    
         # Unpickle model
         mlpc_model = pd.read_pickle(r"mlpc_model.pickle")
         # Make prediction
