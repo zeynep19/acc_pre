@@ -21,7 +21,7 @@ def predict_chances(request):
 
     
         # Unpickle model
-        mlpc_model = pd.read_pickle(r"mlpc_model.pickle")
+        mlpc_model = pd.read_pickle("mlpc_model.pickle")
         # Make prediction
         result = mlpc_model.predict([[Hat_Kodu, Gun, Saat, Arac_Kimligi, Konum_Bilgisi, Personel_Sicili, Surucu_Performans_Puani]])
 
