@@ -6,7 +6,6 @@ class PredResults(models.Model):
     Hat_Kodu = models.FloatField()
     Gun = models.FloatField()
     Saat = models.FloatField()
-    Arac_Kimligi = models.FloatField()
     Konum_Bilgisi = models.FloatField()
     Personel_Sicili = models.FloatField()
     Surucu_Performans_Puani = models.FloatField()

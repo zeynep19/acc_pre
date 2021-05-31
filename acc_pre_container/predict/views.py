@@ -14,24 +14,22 @@ def predict_chances(request):
         Hat_Kodu = int(request.POST.get('Hat_Kodu'))
         Gun = int(request.POST.get('Gun'))
         Saat = int(request.POST.get('Saat'))
-        Arac_Kimligi = int(request.POST.get('Arac_Kimligi'))
         Konum_Bilgisi = int(request.POST.get('Konum_Bilgisi'))
         Personel_Sicili = int(request.POST.get('Personel_Sicili'))
         Surucu_Performans_Puani = float(request.POST.get('Surucu_Performans_Puani'))
 
     
         # Unpickle model
-        mlpc_model = pd.read_pickle("mlpc_model.pickle")
+        model = pd.read_pickle("gradient_boosting_model.pickle")
         # Make prediction
-        result = mlpc_model.predict([[Hat_Kodu, Gun, Saat, Arac_Kimligi, Konum_Bilgisi, Personel_Sicili, Surucu_Performans_Puani]])
+        result = model.predict([[Hat_Kodu, Gun, Saat, Konum_Bilgisi, Personel_Sicili, Surucu_Performans_Puani]])
 
         Target = result[0]
 
-        PredResults.objects.create(Hat_Kodu=Hat_Kodu, Gun=Gun, Saat=Saat, Arac_Kimligi=Arac_Kimligi, 
-                                    Konum_Bilgisi=Konum_Bilgisi, Personel_Sicili=Personel_Sicili, 
-                                    Surucu_Performans_Puani=Surucu_Performans_Puani, Target=Target)
+        PredResults.objects.create(Hat_Kodu=Hat_Kodu, Gun=Gun, Saat=Saat, Konum_Bilgisi=Konum_Bilgisi, 
+                                    Personel_Sicili=Personel_Sicili, Surucu_Performans_Puani=Surucu_Performans_Puani, Target=Target)
 
-        return JsonResponse({'result': Target, 'Hat_Kodu': Hat_Kodu, 'Gun': Gun, 'Saat': Saat, 'Arac_Kimligi': Arac_Kimligi,
+        return JsonResponse({'result': Target, 'Hat_Kodu': Hat_Kodu, 'Gun': Gun, 'Saat': Saat,
                              'Konum_Bilgisi': Konum_Bilgisi, 'Personel_Sicili': Personel_Sicili, 'Surucu_Performans_Puani': Surucu_Performans_Puani},
                             safe=False)
 

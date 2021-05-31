@@ -16,7 +16,6 @@
                 <div>Hat Kodu: <span id="HK"></span></div>
                 <div>Gün: <span id="G"></span></div>
                 <div>Saat: <span id="S"></span></div>
-                <div>Araç Kimliği: <span id="AK"></span></div>
                 <div>Konum Bilgisi: <span id="KB"></span></div>
                 <div>Personel Sicili: <span id="PS"></span></div>
                 <div>Sürücü performans puanı: <span id="SPP"></span></div>
@@ -50,10 +49,6 @@
                     <input type="number" step="1" class="form-control" id="Saat" placeholder="" required>
                 </div>
                 <div class="form-group">
-                    <label for="Arac_Kimligi">Araç Kimliği</label>
-                    <input type="number" step="1" class="form-control" id="Arac_Kimligi" placeholder="" required>
-                </div>
-                <div class="form-group">
                     <label for="Konum_Bilgisi">Konum Bilgisi</label>
                     <input type="number" step="1" class="form-control" id="Konum_Bilgisi" placeholder="" required>
                 </div>
@@ -81,7 +76,6 @@
                 Hat_Kodu:$('#Hat_Kodu').val(),
                 Gun:$('#Gun').val(),
                 Saat:$('#Saat').val(),
-                Arac_Kimligi:$('#Arac_Kimligi').val(),
                 Konum_Bilgisi:$('#Konum_Bilgisi').val(),
                 Personel_Sicili:$('#Personel_Sicili').val(),
                 Surucu_Performans_Puani:$('#Surucu_Performans_Puani').val(),
@@ -94,7 +88,6 @@
                 document.getElementById("HK").innerHTML = json['Hat_Kodu']
                 document.getElementById("G").innerHTML = json['Gun']
                 document.getElementById("S").innerHTML = json['Saat']
-                document.getElementById("AK").innerHTML = json['Arac_Kimligi']
                 document.getElementById("KB").innerHTML = json['Konum_Bilgisi']
                 document.getElementById("PS").innerHTML = json['Personel_Sicili']
                 document.getElementById("SPP").innerHTML = json['Surucu_Performans_Puani']
